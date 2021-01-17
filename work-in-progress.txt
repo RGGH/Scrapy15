@@ -1,0 +1,26 @@
+import requests
+
+url = 'https://www.immowelt.de/liste/mannheim/wohnungen/mieten?sort=relevanz'
+
+headers = {'Origin': 'https://www.immowelt.de', 'Content-Length': '86', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8', 'Accept-Encoding': 'gzip,', 'Sec-Fetch-Site': 'same-origin', 'Host': 'www.immowelt.de', 'Accept': 'text/plain,', 'User-Agent': 'Mozilla/5.0','Cookie': 'bx=7eb1027fdfc247bfa99ce3d818e8576b; wd=dc460d5f627944e38ae80bbfd747e006; IWDeviceType=3; OPTOUTMULTI=0:0; _ga=GA1.2.2041887452.1610635349; kameleoonVisitorCode=_js_iud4w1lfftznf8z7; __gads=ID=4eb56234a2bf643c:T=1610635350:S=ALNI_MZuyeqUG1JaL2XxCNEAAEclDvU_eA; domain_iwin=www.immowelt.de; OX_plg=pm; _gid=GA1.2.2005328635.1610909676; IwAGSessionId=e622c867-9e60-bba8-da29-f68517259061; outbrain_cid_fetch=true; OX_sd=2; CONSENTMGR=consent:true%7Cts:1610916589824; utag_main=v_id:0177015907220046addb41f77f0802068001806000abe$_sn:3$_se:9$_ss:0$_st:1610918389831$ses_id:1610916581686%3Bexp-session$_pn:2%3Bexp-session; _uetsid=713d057058f511eb9e1ff95f5de49949; _uetvid=bb14c440567611eba23e91c6cef74e6f; iwScreenRes=965,880', 'Connection': 'keep-alive', 'Referer': 'https://www.immowelt.de/liste/mannheim/wohnungen/mieten?sort=relevanz', 'Sec-Fetch-Mode': 'cors', 'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/x-www-form-urlencoded;', 'Sec-Fetch-Dest': 'empty'}
+params = {
+		'query': 'geoid%3D10808222000%26etype%3D1%26esr%3D2%26sort%3Drelevanz',
+'offset': 12,
+'pageSize': 4
+			}
+
+x = requests.post(url=url, data = params, headers=headers)
+
+print(x.text)
+
+
+'''
+<div class="filter clear relative">
+<form action="/typenhausliste/filter/search" id="filterForm" method="post">                <input type="hidden" name="PolygonData" id="PolygonData" value="" />
+                <input type="hidden" name="TrackingValues" id="TrackingValues" value="" />
+                <input type="hidden" name="Sort" id="SortValue" value="relevanz" />
+                <input type="hidden" name="SortChanged" id="SortChanged" />
+                <input type="hidden" name="listController" id="listController" value="liste" />
+<input data-val="true" data-val-number="Es muss eine Zahl eingegeben werden." data-val-required="The AmbitSearchVariant field is required." id="AmbitSearchVariant" name="AmbitSearchVariant" type="hidden" value="-1" />
+
+'''
